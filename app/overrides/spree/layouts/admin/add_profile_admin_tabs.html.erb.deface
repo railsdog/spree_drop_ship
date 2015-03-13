@@ -1,0 +1,7 @@
+<!-- insert_top "#main-sidebar" -->
+
+<% if can? :edit,  Spree::Supplier  && try_spree_current_user.supplier?  && spree_current_user.supplier_id %>
+  <ul class="nav nav-sidebar">
+     <%#= tab :profile, url: spree.edit_admin_supplier_url(spree_current_user.supplier_id), match_path: '/suppliers', icon: 'user' %>
+  </ul>
+<% end %>

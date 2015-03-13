@@ -1,0 +1,21 @@
+<!-- insert_top "#main-sidebar" -->
+
+<% if can? :index, Spree::Supplier %>
+ <ul class="nav nav-sidebar">
+    <%= tab :suppliers, label: Spree.t(:suppliers), url: spree.admin_suppliers_path, icon: 'building' %>
+ </ul>
+<% end %>
+
+<% if can? :index, Spree::Shipment %>
+ <ul class="nav nav-sidebar">
+    <%= tab :shipments, label: Spree.t(:shipments), match_path: '/shipments', icon: 'truck' %>
+   </ul>
+<% end %>
+
+<% if try_spree_current_user.try(:supplier?) and can? :index, Spree::StockLocation %>
+ <ul class="nav nav-sidebar">
+    <%= tab :stock_locations, label: Spree.t(:stock_locations), match_path: '/stock_locations', icon: 'map-marker' %>
+   </ul>
+<% end %>
+
+
